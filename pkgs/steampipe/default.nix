@@ -1,11 +1,12 @@
 {
+  fetchzip,
   stdenv,
   system,
 }: let
   filterSystem = s:
     {
       "aarch64-darwin" = {
-        sha256 = "sha256:1wjy4aapagxvld2y8d4bbz36xl4xy2l8xyf0wfwl0b5ps2wkn55v";
+        sha256 = "sha256-Ory3p69+uYpLPR3W97PJG0uukPYCClLH9rOzYh7k9vo=";
         system = "darwin_arm64";
       };
       "aarch64-linux" = {
@@ -17,25 +18,24 @@
         system = "darwin_amd64";
       };
       "x86_64-linux" = {
-        sha256 = "sha256:11c1wd0lh3yrbp4c9gcrs0f57xmmaihiszxmq7wbx8lxwfw452zh";
+        sha256 = "";
         system = "linux_amd64";
       };
     }
     .${s}
     or (throw "Unsupported system: ${s}");
   metadata = filterSystem system;
-  name = "dagger";
-  version = "v0.9.8";
+  name = "steampipe";
+  version = "v0.21.8";
 in
   stdenv.mkDerivation rec {
     inherit name version;
-    src = builtins.fetchurl {
+    src = fetchzip {
       sha256 = metadata.sha256;
-      url = "https://github.com/dagger/dagger/releases/download/${version}/dagger_${version}_${metadata.system}.tar.gz";
+      url = "https://github.com/turbot/steampipe/releases/download/${version}/steampipe_${metadata.system}.zip";
     };
-    unpackPhase = ''
+    installPhase = ''
       mkdir -p $out/bin
-      tar -xzf $src -C .
-      mv dagger $out/bin/dagger
+      mv steampipe $out/bin/steampipe
     '';
   }
