@@ -6,18 +6,22 @@
   filterSystem = s:
     {
       "aarch64-darwin" = {
+        extension = "zip";
         sha256 = "sha256-Ory3p69+uYpLPR3W97PJG0uukPYCClLH9rOzYh7k9vo=";
         system = "darwin_arm64";
       };
       "aarch64-linux" = {
+        extension = "tar.gz";
         sha256 = "";
         system = "linux_arm64";
       };
       "x86_64-darwin" = {
+        extension = "zip";
         sha256 = "";
         system = "darwin_amd64";
       };
       "x86_64-linux" = {
+        extension = "tar.gz";
         sha256 = "";
         system = "linux_amd64";
       };
@@ -32,7 +36,7 @@ in
     inherit name version;
     src = fetchzip {
       sha256 = metadata.sha256;
-      url = "https://github.com/turbot/steampipe/releases/download/${version}/steampipe_${metadata.system}.zip";
+      url = "https://github.com/turbot/steampipe/releases/download/${version}/steampipe_${metadata.system}.${metadata.extension}";
     };
     installPhase = ''
       mkdir -p $out/bin
