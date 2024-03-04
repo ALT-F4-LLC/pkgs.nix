@@ -22,7 +22,7 @@
       };
       "x86_64-linux" = {
         extension = "tar.gz";
-        sha256 = "";
+        sha256 = "sha256-tXnTnwf7OS5f6tFRZEl8UwxjuSmCj5EJwdGtxN4xbZk=";
         system = "linux_amd64";
       };
     }

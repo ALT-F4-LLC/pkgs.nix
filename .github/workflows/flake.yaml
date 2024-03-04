@@ -36,4 +36,5 @@ jobs:
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
           name: altf4llc-os
       - uses: actions/checkout@v4
+      - run: nix develop -c just build "${{ matrix.profile }}"
       - run: nix develop -c just cache-build "${{ matrix.profile }}"
