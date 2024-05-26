@@ -26,6 +26,7 @@
         formatter = pkgs.alejandra;
 
         packages = {
+          alloy = pkgs.callPackage ./pkgs/alloy {};
           dagger = pkgs.callPackage ./pkgs/dagger {};
           steampipe = pkgs.callPackage ./pkgs/steampipe {};
         };
