@@ -56,6 +56,12 @@ in
       description = "Extra environment variables to load the service with.";
     };
 
+    environmentFiles = mkOption {
+      type = types.listOf types.path;
+      default = [ ];
+      description = "Paths to load as environment files.";
+    };
+
     extraArgs = mkOption {
       type = types.str;
       default = "";
@@ -98,6 +104,7 @@ in
         Restart = "always";
         ExecStart = "${lib.getExe cfg.package} run ${cfg.extraArgs} --storage.path=${cfg.storagePath} ${cfg.configPath}";
         ExecReload = "/usr/bin/env kill -HUP $MAINPID";
+        EnvironmentFile = cfg.environmentFiles;
         StateDirectory = "alloy";
         WorkingDirectory = "%S/alloy";
         TimeoutStopSec = "20s";
