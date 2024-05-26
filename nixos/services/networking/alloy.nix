@@ -109,6 +109,7 @@ in
         WorkingDirectory = "%S/alloy";
         TimeoutStopSec = "20s";
         User = cfg.user;
+        Group = cfg.group;
       };
     };
   };
