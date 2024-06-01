@@ -11,10 +11,10 @@
 
 buildGoModule rec {
   pname = "grafana-alloy";
-  version = "1.2.0-dev";
+  version = "1.1.1";
 
   src = fetchFromGitHub {
-    rev = "main";
+    rev = "v1.1.1";
     owner = "grafana";
     repo = "alloy";
     hash = "sha256-Hvi/tf3IuwEtrJ4c2u+0mPmFJHmh/yH8Vm1LU03hhFs=";
