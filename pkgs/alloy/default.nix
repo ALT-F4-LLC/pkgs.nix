@@ -20,7 +20,7 @@ buildGoModule rec {
     hash = "sha256-jaOQG+QkVi10lUp6izvSGE9j76ULc4yKbxdDhLHykYI=";
   };
 
-  vendorHash = "sha256-Vc4/NsHpFpMtFSiHDwekSYoS0W30/FCBEQcUaJ9/ofo=";
+  vendorHash = "sha256-T48y1vhD1Z0pkTK77YJxcGmZnkrQClQOySoYgEYfyNo=";
 
   nativeBuildInputs = [ fixup_yarn_lock yarn nodejs ];
 
