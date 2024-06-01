@@ -17,7 +17,7 @@ buildGoModule rec {
     rev = "v1.1.1";
     owner = "grafana";
     repo = "alloy";
-    hash = "sha256-Hvi/tf3IuwEtrJ4c2u+0mPmFJHmh/yH8Vm1LU03hhFs=";
+    hash = "sha256-jaOQG+QkVi10lUp6izvSGE9j76ULc4yKbxdDhLHykYI=";
   };
 
   vendorHash = "sha256-Vc4/NsHpFpMtFSiHDwekSYoS0W30/FCBEQcUaJ9/ofo=";
