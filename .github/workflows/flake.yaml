@@ -27,6 +27,7 @@ jobs:
     strategy:
       matrix:
         profile:
+          - alloy
           - dagger
           - steampipe
     steps:
